@@ -1,12 +1,6 @@
 <template>
     <div>
-        <div class="topnav">
-            <div class="logo">LOGO</div>
-            <ul>
-                <li>菜单</li>
-            </ul>
-            <div class="menu"></div>
-        </div>
+        <Topnav/>
         <div class="banner">
             <h1>flurryUI</h1>
             <h2>一个基于Vue3.0的UI框架</h2>
@@ -17,22 +11,11 @@
         </div>
     </div>
 </template>
+<script lang="ts">
+import Topnav from '../components/Topnav.vue';
+export default{
+    components: {Topnav}
+}
+</script>
 <style lang="scss" scoped>
-.topnav {
-    background-color: pink;
-    display: flex;
-    padding: 16px;
-    > .logo {
-      max-width: 6em;
-      margin-right: auto;
-    }
-    > .menu {
-      display: flex;
-      white-space: nowrap;
-      flex-wrap: nowrap;
-      > li {
-        margin: 0 1em;
-      }
-    }
-  }
 </style>
