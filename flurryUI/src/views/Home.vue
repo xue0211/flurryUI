@@ -34,7 +34,7 @@ export default{
       height: $h;
       line-height: $h;
       border-radius: $h/2;
-      padding: 0 8px;
+      padding: 5px 8px;
     }
   }
 }
