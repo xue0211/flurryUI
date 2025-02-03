@@ -1,17 +1,20 @@
 <template>
-    <button @click="toggle" :class="{checked}"><span></span></button>
+    <button @click="toggle" :class="{ checked:value}"><span></span></button>
+    <div>{{ value }}</div>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 
-export default{
-    setup(){
-        const checked = ref(false)
-        const toggle = ()=>{
-            checked.value = !checked.value
+export default {
+    props: {
+        value: Boolean
+    },
+    setup(props, context) {
+        const toggle = () => {
+            context.emit('input', !props.value)
         }
-        return {checked, toggle}
+        return { toggle }
     }
 }
 </script>
@@ -28,27 +31,35 @@ button {
     line-height: $h;
     vertical-align: middle;
     border: none;
-    background: grey;
+    background: #B4BEBF;
+    ;
     border-radius: $h/2;
     outline: none;
     cursor: pointer;
     transition: all 0.2s;
 }
-    span {
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: $h2;
-        height: $h2;
-        border: none;
-        border-radius: $h/2;
-        background-color: #fff;
-    }
-    button.checked{
-        background: blue
-    }
-    button.checked > span {
-        left: calc(100% - #{$h2} - 2px)
-    }
 
+span {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: $h2;
+    height: $h2;
+    border: none;
+    border-radius: $h/2;
+    background-color: #fff;
+    transition: left 250ms;
+}
+
+button.checked {
+    background: #5F83B2
+}
+
+button.checked>span {
+    left: calc(100% - #{$h2} - 2px)
+}
+
+button:focus {
+    outline: none;
+}
 </style>
