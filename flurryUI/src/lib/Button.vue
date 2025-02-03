@@ -1,9 +1,10 @@
 <template>
-    <button class="flurry-button" :class="{ [`theme-${theme}`]: theme }">
+    <button class="flurry-button" :class="classes">
         <slot></slot>
     </button>
 </template>
 <script>
+import { computed } from "vue";
 export default {
     inheritAttrs: false,
     props: {
@@ -11,12 +12,22 @@ export default {
             type: String,
             default: "button",
         },
+        size: {
+            type: String,
+            default: "normal",
+        },
     },
-    setup(props, context) {
-        const { ...rest } = context.attrs;
-        return { rest };
-    },
-};
+    setup(props) {
+        const { theme, size } = props;
+        const classes = computed(() => {
+            return {
+                [`flurry-theme-${theme}`]: theme,
+                [`flurry-size-${size}`]: size,
+            };
+        });
+        return { classes };
+    }
+}
 </script>
 <style lang="scss" scoped>
 // 默认高度
@@ -63,6 +74,42 @@ $radius: 4px;
 
     &::-moz-focus-inner {
         border: 0;
+    }
+
+    &.flurry-theme-link {
+        border-color: transparent;
+        box-shadow: none;
+        color: $blue;
+
+        &:hover,
+        &:focus {
+            color: lighten($blue, 20%);
+        }
+    }
+
+    &.flurry-theme-text {
+        border-color: transparent;
+        box-shadow: none;
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            background: darken(white, 5%);
+        }
+    }
+
+    &.flurry-theme-button {
+        &.flurry-size-big {
+            font-size: 24px;
+            height: 48px;
+            padding: 0 16px;
+        }
+
+        &.flurry-size-small {
+            font-size: 12px;
+            height: 20px;
+            padding: 0 4px;
+        }
     }
 }
 </style>
