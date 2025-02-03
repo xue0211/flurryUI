@@ -5,8 +5,8 @@
             <h1>flurryUI</h1>
             <h2>一个基于Vue3.0的UI框架</h2>
             <p class="actions">
-                <a href="">开始</a>
-                <a href="">GitHub</a>
+                <router-link to="/doc">开始</router-link>
+                <a href="https://github.com/xue0211/flurryUI">GitHub</a>
             </p>
         </div>
     </div>
