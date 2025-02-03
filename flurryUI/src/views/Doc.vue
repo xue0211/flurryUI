@@ -21,24 +21,21 @@ import Topnav from '../components/Topnav.vue';
 export default {
     components: { Topnav },
     setup() {
-        const asideVisible = inject < Ref<boolean>>
-        ('asideVisible') //get
-        return {asideVisible}
+        const asideVisible = inject<Ref<boolean>>
+            ('asideVisible') //get
+        return { asideVisible }
     }
 }
 </script>
 <style lang="scss" scoped>
 .content {
-  position: relative;
+    position: relative;
 }
+
 aside {
     background: lightblue;
     width: 150px;
     padding: 16px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: 70px;
 
     >h2 {
         margin-bottom: 4px;
@@ -48,6 +45,13 @@ aside {
         >li {
             padding: 4px 0;
         }
+    }
+
+    @media (max-width: 500px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 70px;
     }
 }
 </style>
