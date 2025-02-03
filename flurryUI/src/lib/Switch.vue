@@ -19,8 +19,8 @@ button {
     outline: none;
     cursor: pointer;
     transition: all 0.2s;
-
-    >span {
+}
+    span {
         position: absolute;
         top: 2px;
         left: 2px;
@@ -30,5 +30,8 @@ button {
         border-radius: $h/2;
         background-color: #fff;
     }
-}
+    button:hover > span {
+        left: calc(100% - #{$h2} - 2px)
+    }
+
 </style>
