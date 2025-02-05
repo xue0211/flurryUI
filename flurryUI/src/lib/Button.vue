@@ -1,5 +1,6 @@
 <template>
     <button class="flurry-button" :class="classes" :disabled="disabled">
+        <span v-if="loading" class="flurry-loadingIndicator"></span>
         <slot></slot>
     </button>
 </template>
@@ -21,6 +22,10 @@ export default {
             default: "normal",
         },
         disabled: {
+            type: Boolean,
+            default: false,
+        },
+        loading: {
             type: Boolean,
             default: false,
         },
@@ -179,27 +184,54 @@ $grey: #909399;
             }
         }
     }
+
     &.flurry-theme-button {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-      border-color: $grey;
-      &:hover {
-        border-color: $grey;
-      }
-      //   pointer-events: none;
+        &[disabled] {
+            cursor: not-allowed;
+            color: $grey;
+            border-color: $grey;
+
+            &:hover {
+                border-color: $grey;
+            }
+
+            //   pointer-events: none;
+        }
     }
-  }
-  &.flurry-theme-link,
-  &.flurry-theme-text {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-      &:hover {
-        text-decoration: none;
-        background-color: transparent;
-      }
+
+    &.flurry-theme-link,
+    &.flurry-theme-text {
+        &[disabled] {
+            cursor: not-allowed;
+            color: $grey;
+
+            &:hover {
+                text-decoration: none;
+                background-color: transparent;
+            }
+        }
     }
-  }
+
+    >.flurry-loadingIndicator {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        margin-right: 4px;
+        border-radius: 8px;
+        border-color: lighten($blue, 20%) lighten($blue, 10%) $blue transparent;
+        border-style: solid;
+        border-width: 2px;
+        animation: flurry-spin 1s infinite linear;
+    }
+
+    @keyframes flurry-spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 }
 </style>
