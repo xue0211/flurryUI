@@ -3,7 +3,7 @@
         <slot></slot>
     </button>
 </template>
-<script>
+<script lang="ts">
 import { computed } from "vue";
 export default {
     inheritAttrs: false,
@@ -98,18 +98,16 @@ $radius: 4px;
         }
     }
 
-    &.flurry-theme-button {
-        &.flurry-size-big {
-            font-size: 24px;
-            height: 48px;
-            padding: 0 16px;
-        }
+    &.flurry-size-big {
+        font-size: 24px;
+        height: 48px;
+        padding: 0 16px;
+    }
 
-        &.flurry-size-small {
-            font-size: 12px;
-            height: 20px;
-            padding: 0 4px;
-        }
+    &.flurry-size-small {
+        font-size: 12px;
+        height: 20px;
+        padding: 0 4px;
     }
 }
 </style>
