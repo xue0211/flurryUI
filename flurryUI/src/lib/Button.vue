@@ -1,5 +1,5 @@
 <template>
-    <button class="flurry-button" :class="classes">
+    <button class="flurry-button" :class="classes" :disabled="disabled">
         <slot></slot>
     </button>
 </template>
@@ -19,6 +19,10 @@ export default {
         level: {
             type: String,
             default: "normal",
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
         },
     },
     setup(props) {
@@ -46,6 +50,7 @@ $blue: #40a9ff;
 // 角度参数
 $radius: 4px;
 $red: #f56c6c;
+$grey: #909399;
 
 .flurry-button {
     box-sizing: border-box;
@@ -91,6 +96,7 @@ $red: #f56c6c;
         &:hover,
         &:focus {
             color: lighten($blue, 20%);
+            text-decoration: underline;
         }
     }
 
@@ -116,50 +122,82 @@ $red: #f56c6c;
         height: 20px;
         padding: 0 4px;
     }
+
     &.flurry-theme-button {
-    &.flurry-level-main {
-      background: $blue;
-      color: white;
-      border-color: $blue;
-      &:hover,
-      &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
-      }
+        &.flurry-level-main {
+            background: $blue;
+            color: white;
+            border-color: $blue;
+
+            &:hover,
+            &:focus {
+                background: darken($blue, 10%);
+                border-color: darken($blue, 10%);
+            }
+        }
+
+        &.flurry-level-danger {
+            background: $red;
+            border-color: $red;
+            color: white;
+
+            &:hover,
+            &:focus {
+                background: darken($red, 10%);
+                border-color: darken($red, 10%);
+            }
+        }
     }
-    &.flurry-level-danger {
-      background: $red;
-      border-color: $red;
-      color: white;
-      &:hover,
-      &:focus {
-        background: darken($red, 10%);
-        border-color: darken($red, 10%);
+
+    &.flurry-theme-link {
+        &.flurry-level-danger {
+            color: $red;
+
+            &:hover,
+            &:focus {
+                color: darken($red, 10%);
+            }
+        }
+    }
+
+    &.flurry-theme-text {
+        &.flurry-level-main {
+            color: $blue;
+
+            &:hover,
+            &:focus {
+                color: darken($blue, 10%);
+            }
+        }
+
+        &.flurry-level-danger {
+            color: $red;
+
+            &:hover,
+            &:focus {
+                color: darken($red, 10%);
+            }
+        }
+    }
+    &.flurry-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      border-color: $grey;
+      &:hover {
+        border-color: $grey;
       }
+      //   pointer-events: none;
     }
   }
-  &.flurry-theme-link {
-    &.flurry-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
+  &.flurry-theme-link,
   &.flurry-theme-text {
-    &.flurry-level-main {
-      color: $blue;
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
-    }
-    &.flurry-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        text-decoration: none;
+        background-color: transparent;
       }
     }
   }
