@@ -1,6 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-tree"></use>
+      </svg>
+    </div>
     <ul class="menu">
       <li>菜单</li>
     </ul>
@@ -26,7 +30,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: pink;
+  background-color: #f4f2ec;
   display: flex;
   padding: 16px;
   z-index: 10;
@@ -36,15 +40,24 @@ export default {
   >.logo {
     max-width: 6em;
     margin-right: auto;
+    > svg{
+       width: 32px;
+       height: 32px;
+    }
   }
 
   >.menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    border: 5px solid #e26b12;
+    background: #e26b12;
+    border-radius: 20px;
 
     >li {
       margin: 0 1em;
+      color: white;
+      padding: 0 4px;
     }
   }
 
