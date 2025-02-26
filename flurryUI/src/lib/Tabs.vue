@@ -1,24 +1,16 @@
 <template>
     <div class="flurry-tabs">
         <div class="flurry-tabs-nav" ref="container">
-            <div class="flurry-tabs-nav-item" v-for="(itemTitle, index) in titles" 
-            :ref="(el) => {
-                    if (itemTitle === selected) selectedItem = el;
-                }
-                " 
-                @click="select(itemTitle)" 
-                :class="{ selected: itemTitle === selected }" 
-                :key="index"
-                >
+            <div class="flurry-tabs-nav-item" v-for="(itemTitle, index) in titles" :ref="(el) => {
+                if (itemTitle === selected) selectedItem = el;
+            }
+                " @click="select(itemTitle)" :class="{ selected: itemTitle === selected }" :key="index">
                 {{ itemTitle }}
             </div>
             <div class="flurry-tabs-nav-indicator" ref="indicator"></div>
         </div>
         <div class="flurry-tabs-content">
-            <component 
-            class="flurry-tabs-content-item"
-            :key="current.props.title" 
-            :is="current" />
+            <component class="flurry-tabs-content-item" :key="current.props.title" :is="current" />
         </div>
     </div>
 </template>
@@ -37,26 +29,25 @@ export default {
         const indicator = ref<HTMLDivElement>(null);
         const container = ref<HTMLDivElement>(null);
 
-        // const x = () => {
-        //   const { width } = selectedItem.value.getBoundingClientRect();
-        //   indicator.value.style.width = width + "px";
-        //   const { left: left1 } = container.value.getBoundingClientRect();
-        //   const { left: left2 } = selectedItem.value.getBoundingClientRect();
-        //   const left = left2 - left1;
-        //   indicator.value.style.left = left + "px";
-        // };
         onMounted(() => {
-            watchEffect(() => {
-                const { width } = selectedItem.value.getBoundingClientRect();
-                console.log(selectedItem.value);
+            watchEffect(
+                () => {
+                    const { width } = selectedItem.value.getBoundingClientRect();
+                    console.log(selectedItem.value);
 
-                indicator.value.style.width = width + "px";
-                const { left: left1 } = container.value.getBoundingClientRect();
-                const { left: left2 } = selectedItem.value.getBoundingClientRect();
-                const left = left2 - left1;
-                console.log(left);
-                indicator.value.style.left = left + "px";
-            });
+                    indicator.value.style.width = width + "px";
+                    const { left: left1 } = container.value.getBoundingClientRect();
+                    const { left: left2 } = selectedItem.value.getBoundingClientRect();
+                    const left = left2 - left1;
+                    console.log(left);
+                    indicator.value.style.left = left + "px";
+                },
+                // 解决异步
+                {
+                    flush: "sync", //效果更新需要缓冲时间
+                }
+
+            );
         });
         // onMounted(x);
         // onUpdated(x);
