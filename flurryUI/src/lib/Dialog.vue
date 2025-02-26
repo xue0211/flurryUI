@@ -4,11 +4,11 @@
         <div class="flurry-dialog-wrapper">
             <div class="flurry-dialog">
                 <header>
-                    标题<span class="flurry-dialog-close" @click="close"></span>
+                    <slot name="title" />
+                    <span class="flurry-dialog-close" @click="close"></span>
                 </header>
                 <main>
-                    <p>第一行字</p>
-                    <p>第二行字</p>
+                    <slot name="content" />
                 </main>
                 <footer>
                     <Button level="main" @click="ok">OK</Button>
@@ -23,6 +23,10 @@
 import Button from './Button.vue';
 export default {
     props: {
+        title: {
+            type: String,
+            default: '提示'
+        },
         visible: {
             type: Boolean,
             default: false,
