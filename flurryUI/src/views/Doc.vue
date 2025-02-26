@@ -4,16 +4,28 @@
             <Topnav toggleMenuButtonVisible class="nav" />
             <div class="content">
                 <transition name="slide">
-                <aside v-if="asideVisible">
-                    <h2>组件列表</h2>
-                    <ol>
-                        <li><router-link to="/doc/switch">Switch 组件</router-link></li>
-                        <li><router-link to="/doc/button">Button 组件</router-link></li>
-                        <li><router-link to="/doc/dialog">Dialog 组件</router-link></li>
-                        <li><router-link to="/doc/tabs">Tabs 组件</router-link></li>
-                    </ol>
-                </aside>
-            </transition>
+                    <aside v-if="asideVisible">
+                        <h2>文档</h2>
+                        <ol>
+                            <li>
+                                <router-link to="/doc/intro">介绍</router-link>
+                            </li>
+                            <li>
+                                <router-link to="/doc/install">安装</router-link>
+                            </li>
+                            <li>
+                                <router-link to="/doc/get-started">开始使用</router-link>
+                            </li>
+                        </ol>
+                        <h2>组件列表</h2>
+                        <ol>
+                            <li><router-link to="/doc/switch">Switch 组件</router-link></li>
+                            <li><router-link to="/doc/button">Button 组件</router-link></li>
+                            <li><router-link to="/doc/dialog">Dialog 组件</router-link></li>
+                            <li><router-link to="/doc/tabs">Tabs 组件</router-link></li>
+                        </ol>
+                    </aside>
+                </transition>
                 <main>
                     <router-view />
                 </main>
@@ -71,7 +83,7 @@ export default {
 
 aside {
     background: lightblue;
-    width: 285px;
+    width: 150px;  //285px
     padding: 16px;
     position: fixed;
     top: 0;
