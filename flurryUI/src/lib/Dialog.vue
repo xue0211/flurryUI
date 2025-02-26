@@ -1,21 +1,23 @@
 <template>
     <template v-if="visible">
-        <div class="flurry-dialog-overlay" @click="onClickOverlay"></div>
-        <div class="flurry-dialog-wrapper">
-            <div class="flurry-dialog">
-                <header>
-                    <slot name="title" />
-                    <span class="flurry-dialog-close" @click="close"></span>
-                </header>
-                <main>
-                    <slot name="content" />
-                </main>
-                <footer>
-                    <Button level="main" @click="ok">OK</Button>
-                    <Button @click="cancel">Cancel</Button>
-                </footer>
+        <Teleport to="body">
+            <div class="flurry-dialog-overlay" @click="onClickOverlay"></div>
+            <div class="flurry-dialog-wrapper">
+                <div class="flurry-dialog">
+                    <header>
+                        <slot name="title" />
+                        <span class="flurry-dialog-close" @click="close"></span>
+                    </header>
+                    <main>
+                        <slot name="content" />
+                    </main>
+                    <footer>
+                        <Button level="main" @click="ok">OK</Button>
+                        <Button @click="cancel">Cancel</Button>
+                    </footer>
+                </div>
             </div>
-        </div>
+        </Teleport>
     </template>
 </template>
 
@@ -23,10 +25,6 @@
 import Button from './Button.vue';
 export default {
     props: {
-        title: {
-            type: String,
-            default: '提示'
-        },
         visible: {
             type: Boolean,
             default: false,
