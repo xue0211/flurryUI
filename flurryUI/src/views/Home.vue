@@ -11,17 +11,32 @@
         </p>
       </div>
     </div>
-    <div class="features"> <svg class="icon">
-        <use xlink:href="#icon-vue"></use>
-      </svg>
-      <svg class="icon">
-        <use xlink:href="#icon-ts"></use>
-      </svg>
-      <svg class="icon">
-        <use xlink:href="#icon-light"></use>
-      </svg>
+      <div class="features">
+        <ul>
+          <li>
+            <svg>
+              <use xlink:href="#icon-vue"></use>
+            </svg>
+            <h3>基于 Vue 3</h3>
+            <p>灵活运用 Vue 3 Composition API</p>
+          </li>
+          <li>
+            <svg>
+              <use xlink:href="#icon-ts"></use>
+            </svg>
+            <h3>基于 TypeScript</h3>
+            <p>源代码采用 TypeScript 书写</p>
+          </li>
+          <li>
+            <svg>
+              <use xlink:href="#icon-light"></use>
+            </svg>
+            <h3>代码易读</h3>
+            <p>组件代码经过优化，简洁易读</p>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 </template>
 <script lang="ts">
 import Topnav from '../components/Topnav.vue';
@@ -35,18 +50,58 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
 
 .topnavAndBanner {
   background: #f4f2ec;
-  clip-path: ellipse(79% 57% at 49% 39%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
+.features {
+  margin: 15px auto;
+  width: 400px;
 
-.features{
-  > svg{
-    width: 64px;
-    height: 64px;
+  @media (min-width: 800px) {
+    width: 800px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+  }
+
+  >ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    >li {
+      width: 400px;
+      margin: 16px 0;
+      display: grid;
+      justify-content: start;
+      align-content: space-between;
+      grid-template-areas:
+        "icon title"
+        "icon text";
+      grid-template-columns: 80px auto;
+      grid-template-rows: 1fr auto;
+
+      >svg {
+        grid-area: icon;
+        width: 64px;
+        height: 64px;
+      }
+
+      >h3 {
+        grid-area: title;
+        font-size: 28px;
+        color: #bde2d2
+      }
+
+      >p {
+        grid-area: text;
+        color: #caedb9
+      }
+    }
   }
 }
 
 .banner {
-  padding: 100px 0;
+  padding: 85px 0;
   display: flex;
   justify-content: center;
   align-items: center;
