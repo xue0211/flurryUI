@@ -34,7 +34,8 @@ $green: #aade97;
 $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 .topnavAndBanner {
-  background: #f4f2ec
+  background: #f4f2ec;
+  clip-path: ellipse(79% 57% at 49% 39%);
 }
 
 .features{
