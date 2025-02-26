@@ -10,9 +10,11 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
+    <transition name="fade">
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
     </svg>
+  </transition>
   </div>
 </template>
 <script lang="ts">
@@ -41,6 +43,7 @@ export default {
   left: 0;
   width: 100%;
   background-color: #f4f2ec;
+  border-bottom: 1px solid #ccc;
   display: flex;
   padding: 16px;
   z-index: 10;
@@ -50,6 +53,10 @@ export default {
   >.logo {
     max-width: 6em;
     margin-right: auto;
+    svg {
+      width: 42px;
+      height: 34px;
+    }
 
     >svg {
       width: 32px;
@@ -73,8 +80,8 @@ export default {
   }
 
   >.toggleAside {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     position: absolute;
     left: 16px;
     top: 50%;
