@@ -57,7 +57,7 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
-  margin: 64px auto;
+  margin: 40px auto;
   width: 400px;
   padding: 0 16px;
 
@@ -116,7 +116,7 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
 }
 
 .banner {
-  padding: 85px 0;
+  padding: 88px 0;
   display: flex;
   justify-content: center;
   align-items: center;

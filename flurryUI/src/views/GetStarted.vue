@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <h1>下载与使用</h1>
-        <h2>引入 flurryUI </h2>
+    <h1>#下载与使用</h1>
+        <h2>#引入 flurryUI </h2>
         <h3>完整引入</h3>
         <pre><code>
       import 'flurry-ui/dist/lib/flurry.css'

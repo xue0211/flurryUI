@@ -50,7 +50,7 @@ $border-color: #d9d9d9;
 // 默认字体颜色
 $color: #333;
 // 颜色参数
-$blue: #40a9ff;
+$blue: #e26b12;
 // 角度参数
 $radius: 4px;
 $red: #f56c6c;
@@ -223,14 +223,5 @@ $grey: #909399;
         animation: flurry-spin 1s infinite linear;
     }
 
-    @keyframes flurry-spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
 }
 </style>

@@ -27,6 +27,44 @@
   transform: rotateX(-90deg);
 }
 
-$lightbgc: #aade97;
-$deepbgc: #5b8873;
-$text: #5b8873;
+.first-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #5b8873;
+}
+
+.second-title {
+  h2 {
+    color: #5b8873;
+    position: relative;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    &::before {
+      content: "#";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -0.7em;
+      color: #5b8873;
+      font-weight: 700;
+    }
+  }
+  p {
+    font-size: 0.9em;
+    color: #5b8873;
+    span {
+      font-weight: 700;
+      color: #e26b12
+    }
+  }
+}
+
+
+@keyframes flurry-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

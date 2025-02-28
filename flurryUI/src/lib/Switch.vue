@@ -6,9 +6,9 @@
         :class="{ 'flurry-checked': value }"
         :disabled="loading ? true : disabled"
       >
-        <span><span class="flurry-switch-loading" v-if="loading"></span></span>
-        <p v-if="value" class="flurry-switch-on">on</p>
-        <p v-else class="flurry-switch-off">off</p>
+      <span><span class="flurry-switch-loading" v-if="loading"></span></span>
+      <p v-if="value">on</p>
+      <p v-else>off</p>
       </button>
     </div>
   </template>
@@ -54,6 +54,18 @@
     outline: none;
     cursor: pointer;
     transition: all 0.25s ease-in-out;
+    > .flurry-switch-loading {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      // margin-right: 4px;
+      border-radius: 8px;
+      border-color: lighten(#8486ab, 20%) lighten(#8486ab, 10%) #8486ab
+        transparent;
+      border-style: solid;
+      border-width: 2px;
+      animation: flurry-spin 1s infinite linear;
+    }
     &[disabled] {
       pointer-events: none;
     }
@@ -102,7 +114,7 @@
       }
     }
     &.flurry-checked {
-      background-color: #1890ff;
+      background-color: #e26b12;
       > span {
         left: calc(100% - #{$h2} - 2px);
       }
@@ -110,7 +122,7 @@
         margin: 0 25px 0 7px;
       }
       &:focus {
-        box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
+        box-shadow: 0 0 5px rgba(255, 101, 24, 0.5);
         &:hover {
           box-shadow: none;
         }
