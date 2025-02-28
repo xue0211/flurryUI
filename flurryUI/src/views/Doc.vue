@@ -53,12 +53,11 @@ export default {
 
     >main {
         flex-grow: 1; //宽度变化时占据剩余空间
-        padding: 16px;
-        padding-left: 100px;
+        padding: 16px 30px 100px;
         background-color: #f4f2ec;
 
         @media (max-width: 500px) {
-            padding-left: 24px;
+            padding: 24px;
         }
 
     }

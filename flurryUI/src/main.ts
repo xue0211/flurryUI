@@ -3,7 +3,6 @@ import App from './App.vue'
 import './lib/flurry.scss'
 import './index.scss'
 import { router } from './router'
-import 'github-markdown-css'
 
 
 

@@ -1,16 +1,41 @@
 <template>
-    <article class="markdown-body">
-        <h1>介绍</h1>
-        <p>King UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。</p>
-        <p>
-            这款组件库其实是我为了总结自己这几年的技术经验而写的，全程亲手编写，尽量不采用第三方库，包括你现在看到的这个官网也几乎都是我自己写的。
-        </p>
-        <p>
-            所以如果强烈不建议你将此 UI
-            库用于生产环境。但如果你是抱着看源代码的目的来的，那么这个库还是值得一看的。源代码放在了
-            github.com/kaite_han/xxxxxxx，历史提交信息非常规范，你可以按提交的顺序逐个查看；你也可以直接查看每个组件的源代码和示例，运行方法见
-            README.md。
-        </p>
-        下一节：<a href="#/doc/install">安装</a>
-    </article>
+    <div class="wrapper">
+        <h1>开始</h1>
+        <div class="color">欢迎使用 flurryUI</div>
+        <hr>
+        <h2>介绍</h2>
+        <p>flurryUI 是一款基于 Vue 3 和 TypeScript 的前端 UI 组件库。组件库中包含 button、dialog、switch、tabs 等基础组件的配置和使用。你可以前往 <a
+                href="https://github.com/xue0211/flurryUI"></a> 查看具体的提交信息或者在本官网中查看每个组件的源代码和示例。</p>
+        <p>下一节：<a href="#/doc/install">安装</a></p>
+    </div>
+
+
 </template>
+
+<style lang="scss" scoped>
+$title: #e26b12;
+$text:#5b8873;
+.wrapper {
+    margin: 30px 40px;
+
+}
+h1{
+    padding-bottom: 30px;
+    color:$title;
+}
+h2{
+    padding: 20px 0;
+    color:$title;
+}
+p{
+    padding: 10px 0 80px;
+    color:$text
+}
+a{
+    color: $title;
+}
+.color{
+   color: $text
+}
+
+</style>
