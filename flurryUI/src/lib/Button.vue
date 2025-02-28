@@ -1,5 +1,5 @@
 <template>
-    <button class="flurry-button" :class="classes" :disabled="disabled">
+    <button class="flurry-button" :class="classes" :disabled="loading ? true : disabled">
         <span v-if="loading" class="flurry-loadingIndicator"></span>
         <slot></slot>
     </button>
@@ -8,10 +8,6 @@
 import { computed } from "vue";
 export default {
     props: {
-        theme: {
-            type: String,
-            default: "button",
-        },
         size: {
             type: String,
             default: "normal",
@@ -28,14 +24,18 @@ export default {
             type: Boolean,
             default: false,
         },
+        round: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup(props) {
-        const { theme, size, level } = props;
+        const { round, size, level } = props;
         const classes = computed(() => {
             return {
-                [`flurry-theme-${theme}`]: theme,
                 [`flurry-size-${size}`]: size,
                 [`flurry-level-${level}`]: level,
+                [`flurry-${round ? "round" : "normal"}`]: round,
             };
         });
         return { classes };
@@ -53,6 +53,7 @@ $color: #333;
 $blue: #e26b12;
 // 角度参数
 $radius: 4px;
+$roundRadius: 32px;
 $red: #f56c6c;
 $grey: #909399;
 
@@ -72,19 +73,22 @@ $grey: #909399;
     border-radius: $radius;
     box-shadow: 0 1px 0 fade-out(black, 0.95);
     transition: background 0.25s;
+    margin: 0 10px 8px 0;
 
-    //   相邻组件间相隔8px
-    &+& {
-        margin-left: 8px;
+    @media (min-width: 500px) {
+        &:hover {
+            animation: button-hover 0.5s linear forwards;
+
+            &[disabled] {
+                animation: none;
+            }
+        }
     }
 
-    &:hover,
     &:focus {
         color: $blue;
         border-color: $blue;
-    }
-
-    &:focus {
+        box-shadow: 0px 0px 10px #ccc;
         outline: none;
     }
 
@@ -92,27 +96,15 @@ $grey: #909399;
         border: 0;
     }
 
-    &.flurry-theme-link {
-        border-color: transparent;
-        box-shadow: none;
-        color: $blue;
-
-        &:hover,
-        &:focus {
-            color: lighten($blue, 20%);
-            text-decoration: underline;
-        }
+    &.flurry-round {
+        border-radius: $roundRadius;
     }
 
-    &.flurry-theme-text {
-        border-color: transparent;
-        box-shadow: none;
-        color: inherit;
-
-        &:hover,
-        &:focus {
-            background: darken(white, 5%);
-        }
+    &[disabled] {
+        cursor: not-allowed;
+        color: #fff;
+        background-color: #ddd;
+        border: none;
     }
 
     &.flurry-size-big {
@@ -127,89 +119,36 @@ $grey: #909399;
         padding: 0 4px;
     }
 
-    &.flurry-theme-button {
-        &.flurry-level-main {
-            background: $blue;
-            color: white;
-            border-color: $blue;
-
-            &:hover,
-            &:focus {
-                background: darken($blue, 10%);
-                border-color: darken($blue, 10%);
-            }
-        }
-
-        &.flurry-level-danger {
-            background: $red;
-            border-color: $red;
-            color: white;
-
-            &:hover,
-            &:focus {
-                background: darken($red, 10%);
-                border-color: darken($red, 10%);
-            }
-        }
+    &.flurry-level-primary {
+        color: #fff;
+        border: none;
+        background-color: #1976d2;
     }
 
-    &.flurry-theme-link {
-        &.flurry-level-danger {
-            color: $red;
-
-            &:hover,
-            &:focus {
-                color: darken($red, 10%);
-            }
-        }
+    &.flurry-level-success {
+        color: #fff;
+        border: none;
+        background-color: #ffa500;
     }
 
-    &.flurry-theme-text {
-        &.flurry-level-main {
-            color: $blue;
-
-            &:hover,
-            &:focus {
-                color: darken($blue, 10%);
-            }
-        }
-
-        &.flurry-level-danger {
-            color: $red;
-
-            &:hover,
-            &:focus {
-                color: darken($red, 10%);
-            }
-        }
+    &.flurry-level-warning {
+        color: #fff;
+        border: none;
+        background-color: #e26b12;
     }
 
-    &.flurry-theme-button {
-        &[disabled] {
-            cursor: not-allowed;
-            color: $grey;
-            border-color: $grey;
-
-            &:hover {
-                border-color: $grey;
-            }
-
-            //   pointer-events: none;
-        }
+    &.flurry-level-error {
+        color: #fff;
+        border: none;
+        background-color: #ff6347;
     }
 
-    &.flurry-theme-link,
-    &.flurry-theme-text {
-        &[disabled] {
-            cursor: not-allowed;
-            color: $grey;
-
-            &:hover {
-                text-decoration: none;
-                background-color: transparent;
-            }
-        }
+    &.flurry-level-primary {
+        color: #fff;
+        border: none;
+        background-color: #007a97;
     }
+
 
     >.flurry-loadingIndicator {
         width: 14px;
@@ -217,7 +156,7 @@ $grey: #909399;
         display: inline-block;
         margin-right: 4px;
         border-radius: 8px;
-        border-color: lighten($blue, 20%) lighten($blue, 10%) $blue transparent;
+        border-color: lighten(#5b8873, 20%) lighten(#5b8873, 10%) #5b8873 transparent;
         border-style: solid;
         border-width: 2px;
         animation: flurry-spin 1s infinite linear;
