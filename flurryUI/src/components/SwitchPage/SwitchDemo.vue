@@ -6,9 +6,9 @@
     </div>
 </template>
 <script lang="ts">
-import Switch1Demo from "./Switch1Demo.vue";
-import Switch2Demo from "./Switch2Demo.vue";
-import Demo from "./Demo.vue";
+import Switch1Demo from "./SwitchDemo/Switch1Demo.vue";
+import Switch2Demo from "./SwitchDemo/Switch2Demo.vue";
+import Demo from "../Demo.vue";
 
 
 import { ref } from "vue";
