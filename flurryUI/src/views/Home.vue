@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="topnavAndBanner">
       <Topnav />
       <div class="banner">
@@ -48,12 +48,17 @@ export default {
 $green: #aade97;
 $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+.wrapper{
+  background:  #00613b;
+  height: 100vh;
+}
 .topnavAndBanner {
   background: #f4f2ec;
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
-  margin: 64px auto;;
+  margin: 64px auto;
+  width: 400px;
   padding: 0 16px;
 
   @media (min-width: 800px) {
