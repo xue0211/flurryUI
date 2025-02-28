@@ -64,7 +64,6 @@ export default {
 }
 
     main {
-        height: 100vh;
         overflow: auto;
     }
 </style>
