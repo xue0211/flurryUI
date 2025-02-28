@@ -46,7 +46,7 @@ export default {
   border-bottom: 1px solid #ccc;
   display: flex;
   padding: 16px;
-  z-index: 10;
+  z-index: 20;
   justify-content: center;
   align-items: center;
 

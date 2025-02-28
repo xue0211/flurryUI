@@ -3,7 +3,7 @@
     <div class="topnavAndBanner">
       <Topnav />
       <div class="banner">
-        <h1>FlurryUI</h1>
+        <h1>flurryUI</h1>
         <h2>一个现代、简洁的Vue 3.0 UI组件库，旨在帮助开发者快速构建高性能的Web界面。</h2>
         <p class="actions">
           <router-link to="/doc">开始</router-link>
@@ -53,15 +53,26 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
-  margin: 15px auto;
-  width: 400px;
+  margin: 64px auto;;
+  padding: 0 16px;
 
   @media (min-width: 800px) {
     width: 800px;
+      >ul {
+        >li{
+          width: 50%;
+        }
+      }
   }
 
   @media (min-width: 1200px) {
     width: 1200px;
+
+    >ul {
+        >li{
+          width: 33.3333%;
+        }
+      }
   }
 
   >ul {
@@ -69,7 +80,6 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
     flex-wrap: wrap;
 
     >li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;
