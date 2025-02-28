@@ -76,14 +76,14 @@ aside {
                 padding: 4px 50px;
 
                 &:hover {
-                    background: $lightbgc;
+                    background: #dadada;
                     border-bottom: none;
                 }
             }
 
             .router-link-active {
                 font-weight: bold;
-                background: $lightbgc;
+                background: #dadada;
                 border-right: 3px solid $deepbgc;
 
                 @media (min-width: 500px) {

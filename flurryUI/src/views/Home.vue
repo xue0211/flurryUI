@@ -124,12 +124,11 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
 
   >.actions {
     padding: 8px 0;
-
     a {
       margin: 0 8px;
       background: $green;
       color: #01613d;
-      $h: 80px;
+      $h: 75px;
       height: $h;
       line-height: $h;
       border-radius: $h/2;
@@ -152,5 +151,6 @@ h2 {
   color: #848480;
   font-size: 18px;
   font-family: $font;
+  padding: 5px 0;
 }
 </style>
