@@ -31,5 +31,8 @@ export const router = createRouter({
                 { path: 'tabs', component: TabsDemo },
             ]
         }
-    ]
+    ],
+    scrollBehavior(to, from, savePosition) {
+        return { top: 0 }
+      },
 })  

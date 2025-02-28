@@ -49,7 +49,7 @@ $border-color: #848480;
 
 .demo {
     border: 1px solid $border-color;
-    margin: 16px 0 32px;
+    margin: 16px 0 32px 30px;
     max-width: 550px;
     border-radius: 5px;
 
