@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="first-title">Switch 组件示例</h1>
+        <h1 class="first-title">Switch 示例</h1>
         <section class="second-title">
             <h2>基础用法</h2>
             <p>

@@ -25,45 +25,41 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: #f4f2ec;
 
     >.nav {
         flex-shrink: 0; //高度变化时不收缩
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
     }
 
     >.content {
-        flex-grow: 1; //高度变化时占据剩余空间
-        padding-top: 72px;
+        display: flex;
+        padding-top: 60px;
         padding-left: 285px;
 
+        main {
+            height: 100vh;
+            overflow: auto;
+            flex-grow: 1;
+            padding: 60px;
+            background-color: #f4f2ec;
+        }
+
         @media (max-width: 500px) {
-            padding-top: 75px;
             padding-left: 0;
+
+            main {
+                height: 80vh;
+                overflow: auto;
+                flex-grow: 1; //高度变化时,占据剩余空间
+                padding: 32px;
+            }
         }
-    }
-}
 
-.content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    >aside {
-        flex-shrink: 0; //宽度变化时不收缩
-    }
-
-    >main {
-        flex-grow: 1; //宽度变化时占据剩余空间
-        padding: 16px 30px 100px;
-        background-color: #f4f2ec;
-
-        @media (max-width: 500px) {
-            padding: 60px 30px;
-        }
 
     }
 }
-
-    main {
-        overflow: auto;
-    }
 </style>
