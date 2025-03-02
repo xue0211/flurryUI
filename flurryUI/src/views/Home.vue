@@ -152,5 +152,6 @@ h2 {
   font-size: 18px;
   font-family: $font;
   padding: 5px 0;
+  text-align: center;
 }
 </style>
