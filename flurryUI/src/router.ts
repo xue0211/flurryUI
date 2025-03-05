@@ -32,7 +32,10 @@ export const router = createRouter({
             ]
         }
     ],
-    scrollBehavior(to, from, savePosition) {
-        return { top: 0 }
-      },
+    scrollBehavior(to, from, savedPosition) {
+        // 在每次路由跳转时滚动到顶部
+        return { top: 0 };
+    }
+    
 })  
+export default router;
