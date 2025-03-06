@@ -2,9 +2,9 @@
     <div class="wrapper">
         <h1>安装</h1>
         <p>打开终端运行下列命令：</p>
-        <pre><code>npm install kaite-ui</code></pre>
+        <pre><code>npm install flurry-ui</code></pre>
         <p>或</p>
-        <pre><code>yarn add kaite-ui</code></pre>
+        <pre><code>yarn add flurry-ui</code></pre>
         <br>
         <p>下一节：<a href="#/doc/get-started">开始使用</a></p>
     </div>

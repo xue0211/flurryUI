@@ -1,6 +1,8 @@
 {
-  "name": "flurryUI",
-  "version": "0.0.0",
+  "name": "flurry-ui",
+  "version": "0.0.1",
+  "files":["dist/assets/*"],
+  "main":"dist/assets/index.1ce5c7df.js", 
   "scripts": {
     "dev": "vite",
     "build": "vite build"

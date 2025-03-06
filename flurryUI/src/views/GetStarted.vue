@@ -4,7 +4,7 @@
         <h2>#引入 flurryUI </h2>
         <h3>完整引入</h3>
         <pre><code>
-import'flurry-ui/dist/lib/flurry.css'
+import'flurry-ui/dist/assets/*'
 import { createApp } from 'vue' 
 import App from './App.vue' 
 
@@ -16,7 +16,7 @@ import App from './App.vue'
         <h3>按需引入</h3>
         <p>如果你只希望引入部分组件，比如 Button，那么需要在 main.js 中写入以下内容</p>
         <pre><code>
- import 'flurry-ui/dist/lib/flurry.css
+ import 'flurry-ui/assets/*'
  import {createApp }from 'vue'
  import { Button }from 'flurry-ui'
  import App from './App.vue'
@@ -38,7 +38,7 @@ import App from './App.vue'
 
   createApp(App)
     .component('Button',Button)
-    .component('switch',switch)
+    .component('Switch',Switch)
     .component('Dialog',Dialog)
     .component('Tabs',Tabs)
         </code></pre>
