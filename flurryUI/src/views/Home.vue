@@ -121,6 +121,7 @@ $font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unico
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-right: 1px;
 
   >.actions {
     padding: 8px 0;

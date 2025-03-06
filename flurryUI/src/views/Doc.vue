@@ -72,6 +72,7 @@ export default {
                 flex-grow: 1; //高度变化时,占据剩余空间
                 padding: 32px;
             }
+
         }
 
 
