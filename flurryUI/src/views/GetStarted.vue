@@ -4,9 +4,9 @@
         <h2>#引入 flurryUI </h2>
         <h3>完整引入</h3>
         <pre><code>
- import 'flurry-ui/dist/lib/flurry.css'
- import { createApp } from 'vue' 
- import App from './App.vue' 
+import'flurry-ui/dist/lib/flurry.css'
+import { createApp } from 'vue' 
+import App from './App.vue' 
 
   createApp(App)
    .use(flurryUI)
